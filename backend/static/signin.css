@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400&family=Noto+Sans+Thai:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost';
+}
+
+body{
+    position: relative;
+    background: linear-gradient(180deg, #F1C1C1 0%, rgba(255, 255, 255, 0.74) 37%, 
+    rgba(247.59, 233.19, 233.19, 0.26) 74%, rgba(237.79, 156.54, 156.54, 0.90) 100%);
+    flex-shrink: 0;
+    width: 100%;
+    height: 1024px;
+}
+
+
+
+
+/* section1 menubar */
+.menubar{
+    background-image: linear-gradient(180deg, #E86E7D 0%, #E0AFB5 100%);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 108px;
+}
+
+.logo{
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.book{
+    color: black;
+    position: static;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 48px;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 0;
+    background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.38) 100%);;
+    margin-inline-end: 40px;
+}
+
+.menu li{
+    position: static;
+    list-style: none;
+    display: inline-block;
+    margin-right: 65px;
+    border-radius: 20px;
+    padding: 9px 20px;
+    
+}
+
+.menu a{
+    color: white;
+    font-size: medium;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    color: #E86E7D;
+}
+.menu li:hover {
+    background-color: rgb(250, 247, 247);
+    color: #E86E7D; /* เปลี่ยนสีของข้อความเป็นสีชมพู */
+}
+.book:hover{
+    color: #E86E7D;
+}
+
+
+/* section2 homepage */
+#homepage{
+    position: absolute;
+    width: 100%;
+    height: 790px;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#logoh{
+    position: absolute;
+    width: 16.5%;
+    height: 25%;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* homepage */
+#logoh{
+    width: 250px;
+    height: 200px;
+    margin-right: 0px;
+    margin-top: -60px;
+}
+
+#sign-in {
+    color: #5a5656;
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลางทางแนวนอน */
+    font: 700 36px/150% "Inter", sans-serif;
+    position: absolute;
+    left: 50%; /* กำหนดตำแหน่งแนวนอนตรงกลางของหน้าจอ */
+    top: 400px;
+    transform: translateX(-50%); /* ย้ายข้อความไปที่ตำแหน่งที่กำหนดแนวนอน */
+    line-height: 150%; /* จัดข้อความให้อยู่ตรงกลางทางแนวตั้ง */
+}
+
+/* CSS สำหรับช่อง username และ password */
+.form-group {
+    display: flex;
+    flex-direction: column; /* จัดเรียงแนวตั้ง (คนละบรรทัด) */
+    align-items: center; /* จัดให้อยู่ตรงกลางของหน้าจอแนวตั้ง */
+    margin-top: 400px; /* ระยะห่างด้านบนของช่อง */
+}
+
+.form-control {
+    width: 20%; /* ความกว้างเต็มหน้าจอ */
+    padding: 10px; /* การเพิ่มระยะห่างในช่องข้อมูล */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 50px; /* มุมโค้งของช่อง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่างของช่อง (เพื่อให้ช่องอยู่คนละบรรทัด) */
+    text-align: center; /* จัดข้อความอยู่ตรงกลางแนวนอน */
+    justify-content: center; /* จัดข้อความอยู่ตรงกลางแนวตั้ง */
+}
+
+.form-control::placeholder {
+    color: #aaa; /* สีของข้อความ placeholder */
+}
+
+/* สีของ border เมื่อช่องได้รับการโฟกัส */
+.form-control:focus {
+    border-color: #007bff; /* เส้นขอบเมื่อได้รับการโฟกัส */
+    outline: none; /* ลบเส้นโค้งที่ปรากฎเมื่อโฟกัส */
+}
+
+.sign-in2 {
+    color: rgb(244, 240, 240);
+    position: absolute;
+    font-weight: 600;
+    font-size: 26px;
+    border-radius: 48px;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 0;
+    background: rgb(212, 63, 63);
+    margin-inline-end: 40px;
+    left: 860px;
+    top: 732px;
+    cursor: pointer;
+    left: 50%; /* กำหนด left เป็นครึ่งหนึ่งของ container (50%) */
+    transform: translateX(-50%); /* ใช้ transform เพื่อย้าย .sign-in2 กลับไปที่ตำแหน่งที่ตรงกลาง */
+}
+
+.sign-in2:hover{
+    color: #100e0f;
+}
+
+.copyright p{
+    position: absolute;
+    color: white;
+    text-align: center;
+    left: 550px;
+    bottom: 25px;
+    font-size: 20px;
+    font-family: 'Noto Sans Thai';
+}
+
+#by{
+    font-weight: 500;
+}
+
+.copyright{
+    position: absolute;
+    background-color: #FF4E62;;
+    width: 100%;
+    height: 83px;
+    bottom: 0;
+}

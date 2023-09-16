@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400&family=Noto+Sans+Thai:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost';
+}
+
+body{
+    position: relative;
+    background: linear-gradient(180deg, #F1C1C1 0%, rgba(255, 255, 255, 0.74) 37%, 
+    rgba(247.59, 233.19, 233.19, 0.26) 74%, rgba(237.79, 156.54, 156.54, 0.90) 100%);
+    flex-shrink: 0;
+    width: 100%;
+    height: 2881px;
+}
+
+/* section1 menubar */
+.menubar{
+    background-image: linear-gradient(180deg, #E86E7D 0%, #E0AFB5 100%);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 108px;
+}
+
+.logo{
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.book{
+    color: black;
+    position: static;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 48px;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 0;
+    background: linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.38) 100%);;
+    margin-inline-end: 40px;
+}
+
+.menu li{
+    position: static;
+    list-style: none;
+    display: inline-block;
+    margin-right: 65px;
+    border-radius: 20px;
+    padding: 9px 20px;
+    
+}
+
+.menu a{
+    color: white;
+    font-size: medium;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.menu li:hover{
+    background-color: white;
+}
+
+.menu a:hover{
+    color: #E86E7D;
+}
+
+.book:hover{
+    color: #E86E7D;
+}
+
+
+/* section2 homepage */
+#homepage{
+    position: absolute;
+    width: 100%;
+    height: 790px;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+}
+
+#logoh{
+    position: absolute;
+    width: 16.5%;
+    height: 25%;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* homepage */
+#logoh{
+    width: 217px;
+    height: 184px;
+    margin-right: 988px;
+    margin-top: -435px;
+}
+
+#texthp1{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    margin-top: 53px;
+    margin-left: 350px;
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-weight: 600;
+    font-size: 52px;
+}
+
+#texthp2{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-weight: 500;
+    font-size: 48px;
+    margin-top: 120px;
+    margin-left: 350px;
+}
+
+#hp1{
+    position: absolute;
+    margin-top: 340px;
+    margin-right: 617px;
+}
+
+#texthp3{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-weight: 500;
+    font-size: 48px;
+    margin-left: 550px;
+    margin-top: 504px;
+}
+
+#texthp4{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: left;
+    font-family: 'Noto Sans Thai';
+    font-weight: 400;
+    font-size: 36px;
+    margin-left: 700px;
+    margin-top: 570px;
+
+}
+
+#hp2{
+    position: absolute;
+    right: 0;
+    top: 930px;
+}
+
+#texthp5{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-size: 30px;
+    left: 310px;
+    top: 1250px;
+}
+
+#texthp6_1{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: left;
+    font-family: 'Noto Sans Thai';
+    font-size: 24px;
+    font-weight: 400px;
+    left: 158px;
+    top: 1330px;
+}
+
+#texthp6_2{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: left;
+    font-family: 'Noto Sans Thai';
+    font-size: 24px;
+    left: 158px;
+    top: 1370px;
+}
+
+#texthp7{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-size: 30px;
+    justify-content: center;
+    top:1880px;
+}
+
+#texthp8{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-size: 30px;
+    line-height: 180%;
+    top:1940px;
+}
+
+#hp3{
+    position: absolute;
+    margin-left: -855px;
+    margin-top: 2050px;
+}
+
+#texthp9{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: 'Noto Sans Thai';
+    font-size: 30px;
+    bottom: 450px;
+    right: 475px;
+}
+
+#texthp10{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: left;
+    font-family: 'Noto Sans Thai';
+    font-size: 24px;
+    right: 510px;
+    bottom: 280px;
+}
+
+.copyright p{
+    position: absolute;
+    color: white;
+    text-align: center;
+    left: 550px;
+    bottom: 25px;
+    font-size: 20px;
+    font-family: 'Noto Sans Thai';
+}
+
+#by{
+    font-weight: 500;
+}
+
+.copyright{
+    position: absolute;
+    background-color: #FF4E62;;
+    width: 100%;
+    height: 83px;
+    bottom: 0;
+}

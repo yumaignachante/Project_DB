@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In</title>
+        <link rel="stylesheet" type="text/css" href="static\signin.css">
+    </head>
+
+    <body>
+        <!-- nav -->
+        <div class="menubar">
+            <header>
+                <a href="#" class="logo">King Chulalongkorn Memorial Hospital</a>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Available Beds</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Sign In</a></li>
+                    <button Class="book">Book bed slot now</button>
+                </ul>
+            </header>
+        </div>
+
+        <!-- sign in page -->
+        <div class="home">
+            <img src="static\logoh.png" id="logoh">
+            <h2 id="sign-in">Sign In</h2>
+
+            <button Class="sign-in2">Sign In</button>
+        </div>
+
+        
+        <!-- content -->
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="copyright">
+            <p>Copyright© 2023 <span id="by">BAANYANG.</span> All rights reserverd.</p>
+        </div>
+    </body>
+
+</html>
