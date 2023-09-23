@@ -1,0 +1,197 @@
+{% extends "navbar.html" %} {% block title %} Slot Booking {% endblock title %}
+{% block body %}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="container mt-4">
+  <div class="display-4 text-center text-info">Book Bed Slot</div>
+  <br />
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        {% include "message.html" %}
+        <h4 class="text-center text-success">Covid Care Center</h4>
+        <div class="card-body bg-light">
+          <form action="/slotbooking" method="post">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="srfid"
+                value="{{current_user.srfid}}"
+                readonly
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <select id="bed_type" name="bed_type" class="form-control" required>
+                <option selected>Choose Bed Type</option>
+                <option value="Standard">Standard</option>
+                <option value="I.C.U">I.C.U</option>
+                <option value="C.C.U">C.C.U</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <small> Select hospitalcode by looking the availablity of beds in table right side</small>
+              <select id="hcode" name="hcode" class="form-control" required>
+                <option value="none">Select Hospital Code </option>
+               {% for i in query1 %}
+               
+               <option value="{{i.hcode}}">{{i.hcode}}</option>
+               
+               {% endfor %}
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="pt_id"
+                placeholder="Patient ID"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="pt_fname"
+                placeholder="Patient First Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  name="pt_lname"
+                  placeholder="Patient Last Name"
+                  required
+                />
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="pt_hn"
+                placeholder="Patient Hospital Number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+                <input
+                  type="date"
+                  class="form-control mt-2"
+                  name="pt_dob"
+                  placeholder="Patient Date Of Birth"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  name="pt_age"
+                  placeholder="Patient Age"
+                  required
+                />
+              </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-2"
+                name="pt_phone_number"
+                placeholder="Patient Phone Number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+                <select id="trauma_id" name="trauma_id" class="form-control" required>
+                  <option selected>Choose Trauma</option>
+                  <option value="0">ETC.</option>
+                  <option value="1">Diabetes Mellitus</option>
+                  <option value="2">Hypertension</option>
+                  <option value="3">Chronic hepatitis and Cirrhosis of liver</option>
+                  <option value="4">Congestive heart failure</option>
+                  <option value="5">Cerebrovascular accident</option>
+                  <option value="6">Malignancy</option>
+                  <option value="7">AIDS ( HIV )</option>
+                  <option value="8">Emphysema</option>
+                  <option value="9">Chronic renal failure</option>
+                  <option value="10">Parkinson's disease</option>
+                  <option value="11">Myasthenia gravis</option>
+                  <option value="12">Diabetes insipidus</option>
+                  <option value="13">Multiple sclerosis</option>
+                  <option value="14">Dyslipidemia</option>
+                  <option value="15">Rheumatoid arthritis</option>
+                  <option value="16">Glaucoma</option>
+                  <option value="17">Nephrotic syndrome</option>
+                  <option value="18">SLE</option>
+                  <option value="19">Aplastic anemia</option>
+                  <option value="20">Thalassemia</option>
+                  <option value="21">Hemophilia</option>
+                  <option value="22">Psoriasis</option>
+                  <option value="23">Chronic vesiculobullous disease</option>
+                  <option value="24">ITP</option>
+                  <option value="25">Thyrotoxicosis</option>
+                  <option value="26">Schizophrenia / Delusional disorders (F20 - F29)</option>
+                </select>
+              </div>
+
+
+            <br />
+            <button class="btn btn-info" type="submit">Book Slot</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-8">
+    
+    <table class="table table-dark">
+  <thead>
+  <h3 class="text-center text-white bg-dark">Available Beds</h3>
+    <tr>
+      
+      <th scope="col">Hospital Code</th>
+      <th scope="col">Hospital Name</th>
+      <th scope="col">Normal Bed</th>
+      <th scope="col">HICU Bed</th>
+      <th scope="col">I.C.U Bed</th>
+      <th scope="col">Ventilator Bed</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+   <tr>
+      <td>{{post.hcode}}</td>
+      <td>{{post.hname}}</td>
+      <td>{{post.normalbed}}</td>
+      <td>{{post.hicubed}}</td>
+      <td>{{post.icubed}}</td>
+      <td>{{post.vbed}}</td>
+    </tr>
+   
+  {% endfor %}
+   
+  </tbody>
+</table>
+    
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

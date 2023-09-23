@@ -1,0 +1,33 @@
+{% extends 'basesignin.html' %}
+{% block content %}
+
+<title>Manage Bed In System</title>
+<h2 id="textManageBed">Delete Bed In System</h2>
+<button><a href="/logoutadmin" class="adminlogoutbut">Logout</a></button>
+
+<button><a href="/addBedpage" class="goAddBed">Add Bed</a></button>
+<div id="flash-message-delete">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message3 {{ category }}">{{ message }}
+          <span class="close-button">×</span>
+        </div>
+
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+<form action="/delBedpage" method="post">
+    <div class="form-bed-del">
+        <input type="bed_id" class="form-control-bed-del" placeholder="Enter the bed id" name="bed_id" required>
+        <input type="room_id" class="form-control-bed-del" placeholder="Enter the room id" name="room_id" required>
+        <input type="bed_type" class="form-control-bed-del" placeholder="Enter the bed type" name="bed_type" required>
+    </div>
+
+    <br>
+    <button Class="delbedbut">Delete</button>
+</form>
+
+{% endblock %}
