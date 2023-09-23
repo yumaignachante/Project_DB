@@ -1,0 +1,114 @@
+/* เปลี่ยนเป็นฟอนต์อื่น */
+@font-face {
+    font-family: 'YourNewFont';
+    src: url('../font/YourFont/YourFont-Regular.eot');
+    src: url('../font/YourFont/YourFont-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/YourFont/YourFont-Regular.woff2') format('woff2'),
+         url('../font/YourFont/YourFont-Regular.woff') format('woff'),
+         url('../font/YourFont/YourFont-Regular.ttf') format('truetype'),
+         url('../font/YourFont/YourFont-Regular.svg#YourFont-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* @font-face {
+    font-family: 'Prompt';
+    src: url('/static/assets/webfontscu/Prompt-Regular.ttf"');
+    src: url('../font/Prompt/Prompt-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/Prompt/Prompt-Regular.woff2') format('woff2'),
+         url('../font/Prompt/Prompt-Regular.woff') format('woff'),
+         url('../font/Prompt/Prompt-Regular.ttf') format('truetype'),
+         url('../font/Prompt/Prompt-Regular.svg#Prompt-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('../font/Prompt/Prompt-Light.eot');
+    src: url('../font/Prompt/Prompt-Light.eot?#iefix') format('embedded-opentype'),
+         url('../font/Prompt/Prompt-Light.woff2') format('woff2'),
+         url('../font/Prompt/Prompt-Light.woff') format('woff'),
+         url('../font/Prompt/Prompt-Light.ttf') format('truetype'),
+         url('../font/Prompt/Prompt-Light.svg#Prompt-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('../font/Prompt/Prompt-Medium.eot');
+    src: url('../font/Prompt/Prompt-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../font/Prompt/Prompt-Medium.woff2') format('woff2'),
+         url('../font/Prompt/Prompt-Medium.woff') format('woff'),
+         url('../font/Prompt/Prompt-Medium.ttf') format('truetype'),
+         url('../font/Prompt/Prompt-Medium.svg#Prompt-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS PraJad';
+    src: url('../font/CSPraJad/CSPraJad.eot');
+    src: url('../font/CSPraJad/CSPraJad.eot?#iefix') format('embedded-opentype'),
+         url('../font/CSPraJad/CSPraJad.woff2') format('woff2'),
+         url('../font/CSPraJad/CSPraJad.woff') format('woff'),
+         url('../font/CSPraJad/CSPraJad.ttf') format('truetype'),
+         url('../font/CSPraJad/CSPraJad.svg#CSPraJad') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS PraJad';
+    src: url('../font/CSPraJad/CSPraJad-Italic.eot');
+    src: url('../font/CSPraJad/CSPraJad-Italic.eot?#iefix') format('embedded-opentype'),
+         url('../font/CSPraJad/CSPraJad-Italic.woff2') format('woff2'),
+         url('../font/CSPraJad/CSPraJad-Italic.woff') format('woff'),
+         url('../font/CSPraJad/CSPraJad-Italic.ttf') format('truetype'),
+         url('../font/CSPraJad/CSPraJad-Italic.svg#CSPraJad-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS PraJad';
+    src: url('../font/CSPraJad/CSPraJad-bold.eot');
+    src: url('../font/CSPraJad/CSPraJad-bold.eot?#iefix') format('embedded-opentype'),
+         url('../font/CSPraJad/CSPraJad-bold.woff2') format('woff2'),
+         url('../font/CSPraJad/CSPraJad-bold.woff') format('woff'),
+         url('../font/CSPraJad/CSPraJad-bold.ttf') format('truetype'),
+         url('../font/CSPraJad/CSPraJad-bold.svg#CSPraJad-bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS PraJad';
+    src: url('../font/CSPraJad/CSPraJad-boldItalic.eot');
+    src: url('../font/CSPraJad/CSPraJad-boldItalic.eot?#iefix') format('embedded-opentype'),
+         url('../font/CSPraJad/CSPraJad-boldItalic.woff2') format('woff2'),
+         url('../font/CSPraJad/CSPraJad-boldItalic.woff') format('woff'),
+         url('../font/CSPraJad/CSPraJad-boldItalic.ttf') format('truetype'),
+         url('../font/CSPraJad/CSPraJad-boldItalic.svg#CSPraJad-boldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+} */
