@@ -1,0 +1,84 @@
+<!-- -------------------------------------------------
+
+    หน้า ลบเตียงออกจาก DB สำหรับ admin ใช้งาน
+
+------------------------------------------------------>
+
+<!-- ***************************************************************************************************
+    style ต่างๆ ในtemplate จะไปดึงจากตัวของ painchula มาส่วนใหญ่ ถ้าจะสร้าง element / แก้ไข ต้องสร้าง ไฟล์css มาเพิ่มเอง 
+*********************************************************************************************************-->
+
+
+
+{% extends 'basesignin.html' %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+<title>Manage Bed In System</title>
+<h2 id="textManageBed">Delete Bed In System</h2>
+
+
+
+
+  <li class="has-dropdown">
+    <a class="readonly ">Welcome {{current_user.username}}</a>
+      <a class="menu-dropdown-ctrl" ></a>
+        <div class="menu-dropdown">
+            <ul>
+                <li><a href="/logoutadmin" class="adminlogoutbut">Logout</a></li>
+            </ul>
+        </div>
+</li>
+
+
+
+<button><a href="/addBedpage" class="goAddBed">Add Bed</a></button>
+<div id="flash-message-delete">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message3 {{ category }}" id="flashMessage" >{{ message }}
+          <span class="close-button">×</span>
+        </div>
+
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+<form action="/delBedpage" method="post">
+    <div class="form-bed-del">
+        <input type="bed_id" class="form-control-bed-del" placeholder="Enter the bed id" name="bed_id" required>
+        <input type="room_id" class="form-control-bed-del" placeholder="Enter the room id" name="room_id" required>
+        <input type="bed_type" class="form-control-bed-del" placeholder="Enter the bed type" name="bed_type" required>
+    </div>
+
+    <br>
+    <button Class="delbedbut">Delete</button>
+</form>
+
+
+
+
+
+
+
+
+<script>
+  // รับ element ของ .flash-message2 ด้วย id
+  const flashMessage = document.getElementById("flashMessage");
+
+  // รับ element ของปุ่มปิด (close button)
+  const closeButton = flashMessage.querySelector(".close-button");
+
+  // เพิ่มการดักเหตุการณ์คลิกบนปุ่มปิด
+  closeButton.addEventListener("click", function () {
+      flashMessage.style.display = "none"; // ซ่อน .flash-message2 เมื่อคลิก
+  });
+
+  
+</script>
+
+{% endif %}
+{% endblock %}

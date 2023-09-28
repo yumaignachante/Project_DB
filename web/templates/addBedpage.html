@@ -1,0 +1,68 @@
+
+<!-- ดึงหน้า interface template จาก basesignin.html -->
+{% extends 'basesignin.html' %}
+
+<!-- content ที่จะใส่เพิ่มในหน้าที่ดึงมา -->
+{% block content %}
+
+<title>Manage Bed In System</title>
+<h2 id="sign-in">Add Bed To System</h2>
+
+<!-- ปุ่ม Logout สำหรับ Admin -->
+<button><a href="/logoutadmin" class="adminlogoutbut">Logout</a></button>
+
+
+<!-- ปุ่ม ไปหน้า Delete Bed (delBedpage.html) -->
+<button><a href="/delBedpage" class="goDelBed">Delete Bed</a></button>
+
+<!-- กล่องแจ้งเตือนเมื่อทำการกดปุ่ม Add (ดูคำสั่งในmain.py พวก flash("ข้อความเตือน", "warning"))-->
+<div id="flash-message-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message2 {{ category }}" id="flashMessage">{{ message }}
+          <!-- x กากบาทปิดกล่องแจ้งเตือน ุ มุมขวาบน-->
+          <span class="close-button">×</span>
+        </div>
+          
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+
+  <!-- form สำหรับ input action ต่างๆ ในช่องให้กรอก -->
+<form action="/addBedpage" method="post">
+    <div class="form-bed">
+        <input type="bed_id" class="form-control-bed" placeholder="Enter the bed id" name="bed_id" required>
+        <input type="room_id" class="form-control-bed" placeholder="Enter the room id" name="room_id" required>
+        <input type="bed_type" class="form-control-bed" placeholder="Enter the bed type" name="bed_type" required>
+        <input type="bed_status" class="form-control-bed" placeholder="Enter the bed status" name="bed_status" required>
+        <input type="dept_name" class="form-control-bed" placeholder="Enter the department" name="dept_name" required>
+
+
+    </div>
+
+    <br>
+    <!-- ปุ่ม Add -->
+    <button Class="addbedbut">Add</button>
+</form>
+
+
+<script>
+  // รับ element ของ .flash-message2 ด้วย id
+  const flashMessage = document.getElementById("flashMessage");
+
+  // รับ element ของปุ่มปิด (close button)
+  const closeButton = flashMessage.querySelector(".close-button");
+
+  // เพิ่มการดักเหตุการณ์คลิกบนปุ่มปิด
+  closeButton.addEventListener("click", function () {
+      flashMessage.style.display = "none"; // ซ่อน .flash-message2 เมื่อคลิก
+  });
+
+  
+</script>
+
+<!-- จบ content ที่จะเพิ่มในหน้านี้แล้ว -->
+{% endblock %}

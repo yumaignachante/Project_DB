@@ -1,0 +1,39 @@
+<!-- -------------------------------------------------
+
+    หน้า sign in เก่า
+
+------------------------------------------------------>
+
+
+
+
+
+{% extends 'basesignin.html' %}
+{% block content %}
+
+<title>Login</title>
+<h2 id="sign-in">Login</h2>
+
+<div id="flash-message-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message2 {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+<form action="" method="post">
+    <div class="form-group">
+        <input type="username" class="form-control mt-2" placeholder="Enter the username" name="username" required>
+        <input type="password" class="form-control mt-2" placeholder="Enter the password" name="password" required>
+
+    </div>
+
+    <br>
+    <button Class="sign-in2">Sign In</button>
+</form>
+<a Class="text-warning1" href="/signup">Don't have an account? Sign Un here</a>
+
+{% endblock %}
