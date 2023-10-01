@@ -1,0 +1,1298 @@
+<!-- -------------------------------------------------
+
+    หน้า base สำหรับการจอง (booking) อันล่าสุด สำหรับให้ user / admin ใช้งาน / สำหรับเอาไป extend เพิ่มเนื้อหาที่ต้องการ
+
+------------------------------------------------------>
+
+<!-- ***************************************************************************************************
+    style ต่างๆ ในtemplate จะไปดึงจากตัวของ painchula มาส่วนใหญ่ ถ้าจะสร้าง element / แก้ไข ต้องสร้าง ไฟล์css มาเพิ่มเอง 
+*********************************************************************************************************-->
+<!DOCTYPE html>
+<html style="--vh: 9.58px; --vhFlexible: 9.58px;" class="no-touchevents"><head>
+
+    {% block title %}
+    {% endblock title %}
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>King Chulalongkorn Memorial Hospital</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:title" content="King Chulalongkorn Memorial Hospital">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://painchula.com/wp-content/themes/PMRU/assets/img/og.jpg">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="website">
+    <meta property="fb:pages" content="">
+    <meta property="fb:app_id" content="">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://painchula.com/wp-content/themes/PMRU/assets/img/favicon/safari-pinned-tab.svg" color="#d25f7b">
+    <meta name="msapplication-TileColor" content="#d25f7b">
+    <meta name="theme-color" content="#d25f7b">
+    <link rel="stylesheet" href="https://use.typekit.net/tpw4ndj.css">     
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+<!-- This site is optimized with the Yoast SEO plugin v16.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="หน่วยระงับปวด">
+<link rel="canonical" href="https://painchula.com/">
+<link rel="next" href="https://painchula.com/page/2/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="หน่วยระงับปวด">
+<meta property="og:description" content="หน่วยระงับปวด">
+<meta property="og:url" content="https://painchula.com/">
+<meta property="og:site_name" content="หน่วยระงับปวด">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://painchula.com/#website","url":"https://painchula.com/","name":"\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e23\u0e30\u0e07\u0e31\u0e1a\u0e1b\u0e27\u0e14","description":"\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e23\u0e30\u0e07\u0e31\u0e1a\u0e1b\u0e27\u0e14","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://painchula.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://painchula.com/#webpage","url":"https://painchula.com/","name":"\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e23\u0e30\u0e07\u0e31\u0e1a\u0e1b\u0e27\u0e14 - \u0e2b\u0e19\u0e48\u0e27\u0e22\u0e23\u0e30\u0e07\u0e31\u0e1a\u0e1b\u0e27\u0e14","isPartOf":{"@id":"https://painchula.com/#website"},"description":"\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e23\u0e30\u0e07\u0e31\u0e1a\u0e1b\u0e27\u0e14","breadcrumb":{"@id":"https://painchula.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://painchula.com/"]}]},{"@type":"BreadcrumbList","@id":"https://painchula.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/painchula.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.3.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+display: inline !important;
+border: none !important;
+box-shadow: none !important;
+height: 1em !important;
+width: 1em !important;
+margin: 0 0.07em !important;
+vertical-align: -0.1em !important;
+background: none !important;
+padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="sweetalert2-css" href="https://painchula.com/wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min.css?ver=8.17.1" type="text/css" media="all">
+<link rel="stylesheet" id="user-registration-general-css" href="https://painchula.com/wp-content/plugins/user-registration/assets/css/user-registration.css?ver=1.9.9" type="text/css" media="all">
+<link rel="stylesheet" id="user-registration-smallscreen-css" href="https://painchula.com/wp-content/plugins/user-registration/assets/css/user-registration-smallscreen.css?ver=1.9.9" type="text/css" media="only screen and (max-width: 768px)">
+<link rel="stylesheet" id="user-registration-my-account-layout-css" href="https://painchula.com/wp-content/plugins/user-registration/assets/css/my-account-layout.css?ver=1.9.9" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="https://painchula.com/wp-includes/css/dashicons.min.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://painchula.com/wp-includes/css/dist/block-library/style.min.css?ver=6.3.1" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="https://painchula.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.4.2" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-css" href="https://painchula.com/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.4" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="https://painchula.com/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.4" type="text/css" media="all">
+<link rel="stylesheet" id="bodhi-svgs-attachment-css" href="https://painchula.com/wp-content/plugins/svg-support/css/svgs-attachment.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="magnific-popup-css" href="https://painchula.com/wp-content/themes/PMRU/assets/plugin/magnific-popup/magnific-popup.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="swiper-css" href="https://painchula.com/wp-content/themes/PMRU/assets/plugin/swiper/swiper.min.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="plyr-css" href="https://painchula.com/wp-content/themes/PMRU/assets/plugin/plyr/plyr.min.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="flexmasonry-css" href="https://painchula.com/wp-content/themes/PMRU/assets/plugin/flexmasonry/flexmasonry.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="animate-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/library/animate.min.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="font-css" href="/static/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="iconfont-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/iconfont.css?ver=6.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="theme-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/theme.css?ver=1695394276" type="text/css" media="all">
+<link rel="stylesheet" id="theme-rwd-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/theme-rwd.css?ver=1695394276" type="text/css" media="all">
+<link rel="stylesheet" id="wp-theme-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/wp-theme.css?ver=1695394276" type="text/css" media="all">
+<link rel="stylesheet" id="pmru-css" href="https://painchula.com/wp-content/themes/PMRU/style.css?ver=1695394276" type="text/css" media="all">
+<link rel="stylesheet" id="ihotspot-custom-css" href="https://painchula.com/wp-content/themes/PMRU/assets/css/ihotspot-custom.min.css?ver=1695394276" type="text/css" media="all">
+<script type="text/javascript" src="https://painchula.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="ajax-login-script-js-extra">
+/* <![CDATA[ */
+var ajax_login_object = {"ajaxurl":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php","redirecturl":"https:\/\/painchula.com","loadingmessage":"Please wait..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/ajax-login.js?ver=6.3.1" id="ajax-login-script-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#61a229","button_1_button_hover":"#4e8221","button_1_link_colour":"#fff","button_1_as_button":"","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#dedfe0","button_3_button_hover":"#b2b2b3","button_3_link_colour":"#333333","button_3_as_button":"","button_3_new_win":"","button_4_button_colour":"#dedfe0","button_4_button_hover":"#b2b2b3","button_4_link_colour":"#333333","button_4_as_button":"","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#333333","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.4" id="cookie-law-info-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/library/modernizr-custom.js?ver=6.3.1" id="modernizr-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/library/jquery-1.12.4.min.js?ver=6.3.1" id="jquery-1.12.4-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/library/jquery.easing.1.3.min.js?ver=6.3.1" id="jquery-easing-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/selectedRole.js?ver=3.6" id="role-js"></script>
+<link rel="https://api.w.org/" href="https://painchula.com/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://painchula.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.3.1">
+    <!-- web by ::* www.plaimanas.com -->
+<script src="https://painchula.com/wp-includes/js/wp-emoji-release.min.js?ver=6.3.1" defer=""></script></head>
+
+<body style="opacity: 1;">
+    <div id="page" class="header-flexible header-fixed-page">
+        <header id="header" class="header-fixed">                
+            <div class="header-nav">
+                <div class="container xl">
+                    <div class="header-brand">
+                        <a class="brand" href="/">
+                            <img class="logo" src="static\logoh.png" alt="King Chulalongkorn Memorial Hospital">
+                        </a>
+                    </div>
+
+                    <div class="header-social">
+                        <div class="social">
+<a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
+<a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
+<a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+
+</div>                        </div>
+
+
+
+
+                    <div class="header-contact">
+                        <ul class="contact">
+<li class="type-phone"><a href="tel:+6622564000">02 256 4000 ext 4345</a></li>
+<li class="type-mail"><a href="mailto:bedbooking.cu@gmail.com">bedbooking.cu@gmail.com</a></li><!--
+
+<li class="type-callcenter"><a class="callcenter" href="tel:1466"><i class="ic ic-phone"></i><span class="ic-name">1466</span></a></li>
+-->
+</ul>                        </div>
+
+                    <div class="header-menu-ctrl">
+                        <a class="hamburger" href="javascript:;"><span class="bars">&nbsp;</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-menu">
+                <div class="panel-overlay"></div>
+                <div class="panel">
+                    <div class="close"><a class="hamburger active" href="javascript:;"><span class="bars">&nbsp;</span></a></div>
+                    <div class="wrap">
+                        <div class="inner container xl">
+                            <ul class="menu main-menu left">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="#contact">Contact</a></li>
+
+                                <!-- <li><a href="https://painchula.com/service/">Our Services</a></li>
+                                <li><a href="https://painchula.com/doctor/">Our Doctors</a></li> -->
+                            </ul>
+
+{% if current_user.is_authenticated %}
+                            
+
+<!-- login อยู่ในระบบ -->
+{% if current_user.username != 'admin' %}
+                            <ul class="menu main-menu right">
+
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+
+                                <li class="has-dropdown">
+                                    <a class="readonly " href="javascript:;">Available Beds</a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+{% elif current_user.username == 'admin' %}
+                            <ul class="menu main-menu right">
+
+
+                                <li><a href="/admin">Admin session</a></li>
+
+                                <li class="has-dropdown beds-dropdown">
+                                    <a class="readonly " href="javascript:;">Available Beds</a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/index.php">Manage Beds</a></li>
+                                            <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </li>
+{% endif %}
+
+{% else %}
+
+<!-- ปุ่มsign in/ sign up ขึ้นมาเมื่อไม่ได้loginอยู่ -->
+                        <ul class="menu main-menu right">
+
+                                                        
+
+                            <li class="m-account"><a href="#popup-account" class="button open-popup-modal">Sign In/Sign Up</a></li>
+                        </ul>
+{% endif %}
+
+
+
+
+                        </div>
+                        <div class="detail container xl">
+                            <div class="social">
+                            <a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+
+</div>								<ul class="contact">
+<li class="type-phone"><a href="tel:+6622564000">02 256 4000 ext 4345, 4216, 4378, 4341</a></li>
+<li class="type-mail"><a href="mailto:bedbooking.cu.com">bedbooking.cu@gmail.com</a></li><!--
+
+<li class="type-callcenter"><a class="callcenter" href="tel:1466"><i class="ic ic-phone"></i><span class="ic-name">1466</span></a></li>
+-->
+</ul>                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </header><main id="main" class="index-main">
+            <section class="bg-theme-light">
+                <div class="sc-inner padding-bottom-curve">
+                    <div class="sc-container container xl">
+                        <div class="sc-columns rtl v-center">
+                            <div class="sc-column detail spacing">
+                                <h1 class="sc-heading size-h1 c-theme animate fadeIn">
+                                    <small>รายงาน</small> <br><strong>สถานะของเตียง</strong> 
+                                    <img class="wave filter-theme-medium animate" src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-x.svg" alt="">
+                                </h1>
+
+
+                            </div>
+                            <div class="sc-column cover">
+                                <div class="sc-cover pull animate fadeIn">
+                                    <figure class="media">
+                                        <img src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/doctor-cover.png" alt="">
+                                    </figure>
+
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+
+
+
+                        
+                        <section>
+
+
+
+                        <!-- ตารางแสดงจำนวนเตียงของแต่ละแผนกและห้อง -->
+                        <table id="mytable" class="table table-bordered table-striped">
+                            <thead>
+                                <th>Department</th>
+                                <th>Room Type</th>
+                                <th>Total Beds</th>
+                                <th>Vacant Beds</th>
+                                <th>Occupied Beds</th>
+                            </thead>
+                            <tbody>
+                                {% for bed in beds_by_dept.total_beds %}
+                                <tr>
+                                    <td>{{ bed[0] }}</td>
+                                    <td>{{ bed[1] }}</td>
+                                    <td>{{ bed[2] }}</td>
+                                    <td>{{ beds_by_dept.vacant_beds[loop.index0][2] }}</td>
+                                    <td>{{ beds_by_dept.occupied_beds[loop.index0][2] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                            
+                            <h2 class="sc-heading size-h1 c-theme animate fadeIn">
+                                <img class="wave filter-theme-medium animate" src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-x.svg" alt="">
+                                <small>ข้อมูลเตียง</small>
+                            </h2>
+
+                            <br>
+
+                            <div class="container animate fadeIn">
+                        
+                            <div class="container">
+                                <form method="get" class="d-flex justify-content-end">
+                                    <!-- ช่องเลือกประเภทห้อง -->
+                                    <select class="form-select form-select-sm" name="room_id" style="width: 500px; height: 30px;"  aria-label="Select Room Type">
+                                        <option value="" selected>Select Room Type</option>
+                                        <option value="Standard">Standard Room</option>
+                                        <option value="Deluxe">Deluxe Room</option>
+                                        <option value="Studio">Studio Room</option>
+                                        <option value="Superior">Superior Room</option>
+                                        <option value="Executive">Executive Room</option>
+                                        <option value="Junior Suite ">Junior Suite Room</option>
+                                        <option value="Bhumisiri Suite">Bhumisiri Suite Room</option>
+                                        <option value="I.C.U">I.C.U Room</option>
+                                        <option value="C.C.U">C.C.U Room</option>
+                                    </select>
+
+                                    <!-- ช่องเลือกประเภทเตียง -->
+                                    <select class="form-select form-select-sm" name="bed_type" style="width: 500px; height: 30px; margin-left: 4%;"  aria-label="Select Bed Type">
+                                        <option value="" selected>Select Bed Type</option>
+                                        <option value="Standard">Standard</option>
+                                        <option value="I.C.U">I.C.U</option>
+                                        <option value="C.C.U">C.C.U</option>
+                                    </select>
+
+                                    <!-- ช่องเลือกแผนก -->
+                                    <select class="form-select form-select-sm" name="dept_name" style="width: 500px; height: 30px; margin-left: 4%;" aria-label="Select Department">
+                                        <option value="" selected>Select Department</option>
+                                        <option value="ศูนย์บรรจุผู้ป่วย">ศูนย์บรรจุผู้ป่วย</option>
+                                        <option value="อายุรศาสตร์">อายุรศาสตร์</option>
+                                        <option value="ศัลยศาสตร์">ศัลยศาสตร์</option>
+                                        <option value="สูติศาสตร์-นรีเวชวิทยา">สูติศาสตร์-นรีเวชวิทยา</option>
+                                        <option value="กุมารเวชกรรม">กุมารเวชกรรม</option>
+                                        <option value="ศูนย์โรคหัวใจ">ศูนย์โรคหัวใจ</option>
+                                        <option value="พิเศษ">พิเศษ</option>
+                                    </select>
+                                    
+                                    <br>
+
+                                    <!-- ช่องเลือกสถานะเตียง -->
+                                    <select class="form-select form-select-sm" name="bed_status" style="width: 500px; height: 30px; margin-left: 4%;" aria-label="Select Bed Status">
+                                        <option value="" selected>Select Bed Status</option>
+                                        <option value="ว่าง">ว่าง</option>
+                                        <option value="ไม่ว่าง">ไม่ว่าง</option>
+                                    </select>
+                        
+                                    
+                                    
+                                    <!-- ปุ่ม Filter -->
+                                    <button type="submit" class="btn btn-primary" style="font-size: 16px; width: 150px; height: 35px; margin-left: 4%;">Filter</button>
+                                </form>
+                            </div>
+                        
+                            <br>
+
+                        
+                            <!-- เพิ่มช่องค้นหา -->
+                            <div class="mb-3">
+                                <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                            </div>
+                        
+                            <form method="get">
+                                <label for="per_page" style="font-size: 16px;">Show entries per page:</label>
+                                <!-- เพิ่ม onchange ไปยัง select ของจำนวนแสดงต่อหน้า -->
+                                <select name="per_page" id="per_page" style="width: 80px; height: 35px; font-size: 16px;" onchange="updatePerPage()">
+                                    <option value="beds_data.total" {% if selected_per_page == 0 %}selected{% endif %}>All</option>
+                                    <option value="10" {% if selected_per_page == 10 %}selected{% endif %}>10</option>
+                                    <option value="20" {% if selected_per_page == 20 %}selected{% endif %}>20</option>
+                                    <option value="30" {% if selected_per_page == 30 %}selected{% endif %}>30</option>
+                                </select>
+                                <button type="submit" class="btn btn-dark">Apply</button>
+                            </form>
+                        
+
+                            <br>
+                            <hr>
+
+
+                            <!-- แสดงผลข้อมูลและเพิ่มการนำทาง -->
+                            <div class="mb-3">
+                                <p>
+                                    <span>Showing {{ beds_data.page * beds_data.per_page - beds_data.per_page + 1 }}
+                                         to {{ beds_data.page * beds_data.per_page }} of {{ beds_data.total }} entries</span>
+                                </p>
+                            </div>
+
+                            <table id="mytable" class="table table-bordered table-striped">
+                                <thead>
+                                    <th>Bed ID</th>
+                                    <th>Room ID</th>
+                                    <th>Bed Type</th>
+                                    <th>Bed Status</th>
+                                    <th>Department Name</th>
+                        
+                                    <th>Detail</th>
+                                    <th>Book Bed Slot</th>
+                                </thead>
+                                <tbody>
+                                    {% for bed in beds_data.items %}
+                        
+                                    <tr>
+                                        <td>{{ bed.bed_id }}</td>
+                                        <td>{{ bed.room_id }}</td>
+                                        <td>{{ bed.bed_type }}</td>
+                                        <td>{{ bed.bed_status }}</td>
+                                        <td>{{ bed.dept_name }}</td>
+                                        <td><a href="{{ url_for('edit_bed', bed_id=bed.bed_id) }}" class="btn btn-outline-info">Detail</a></td>
+                                        {% if bed.bed_status == 'ว่าง' %}
+                                        <td><a href="{{ url_for('delete_bed', bed_id=bed.bed_id) }}" class="btn btn-success">Book Bed</a></td>
+                                        {% endif %}
+                                    </tr>
+                        
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <!-- ปุ่มและลิงก์หน้า -->
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    {% if beds_data.has_prev %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{ url_for('slotbooking', page=beds_data.prev_num, per_page=beds_data.per_page) }}">Previous</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item disabled">
+                                            <span class="page-link">Previous</span>
+                                        </li>
+                                    {% endif %}
+                                    
+                                    {% for page_num in beds_data.iter_pages() %}
+                                        {% if page_num %}
+                                            {% if beds_data.page == page_num %}
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ page_num }}</span>
+                                                </li>
+                                            {% else %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="{{ url_for('slotbooking', page=page_num, per_page=beds_data.per_page) }}">{{ page_num }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% else %}
+                                            <li class="page-item disabled">
+                                                <span class="page-link">...</span>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% if beds_data.has_next %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{ url_for('slotbooking', page=beds_data.next_num, per_page=beds_data.per_page) }}">Next</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item disabled">
+                                            <span class="page-link">Next</span>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+
+
+
+
+                            </div>
+                        
+                        
+                            <script>
+                                // ค้นหาเมื่อพิมพ์ในช่องค้นหา
+                                document.getElementById("searchInput").addEventListener("input", function () {
+                                    let filter = this.value.toLowerCase();
+                                    let rows = document.querySelectorAll("#mytable tbody tr");
+                        
+                                    rows.forEach(row => {
+                                        let text = row.textContent.toLowerCase();
+                                        if (text.includes(filter)) {
+                                            row.style.display = "table-row";
+                                        } else {
+                                            row.style.display = "none";
+                                        }
+                                    });
+                                });
+                            </script>
+                        
+                        
+                            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+                        
+                        </section>
+                    </div>
+                </div>
+                <div class="sc-curve bottom">
+                    <div class="curve"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2700 155.25" preserveAspectRatio="none"><path fill="#ffffff" d="M0,155.25V93.94c18.86,4.19,37.17,8.87,55.73,12.25,36.36,6.6,72.73,13.35,109.33,18.46,108.54,15.18,217.68,20,327.18,16.31,58.18-2,116.44-4.81,173.77-15.32,56.34-10.31,112.41-22.37,168.27-35.11C892,77.38,949.07,61.65,1006.78,48.61c53.25-12,106.77-23,160.51-32.65C1257.14,0,1347.81-2.8,1438.84,2.37a1828.06,1828.06,0,0,1,208.54,24.27c54.84,9.49,109.37,20.8,164.24,30,60.21,10.12,120.5,20.2,181.07,27.77C2077.37,95,2162.58,98,2247.89,95.2c53.4-1.75,106.87-3,160.12-6.92,63.38-4.7,126.67-11.2,189.8-18.64,33.14-3.9,65.85-11.47,98.75-17.39,1-.17,2-.42,3.44-.74V155.25Z"/></svg></div>
+                </div>
+            </section>
+        
+
+
+{% block content %}
+
+<section class="bg-white">
+    <div class="scene doctor01"><i class="ic ic-hospital" style="background-color:#ffe8e3;"></i></div>
+    <div class="scene doctor02"><i class="ic ic-hospital" style="background-color:#d1e2e8;"></i></div>
+    <div class="scene doctor03"><img src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/scene2.png" alt=""></div>
+
+    <div class="sc-inner padding-top-md">
+        <div class="sc-container container xl">
+            <div class="sc-function animate fadeIn">
+                <div class="categories-container">
+                    <div class="swiper-mask">
+                        <div class="swiper-container auto">
+                            <div class="swiper-wrapper">
+
+                                
+
+
+                                <div class="swiper-slide">
+                                    <a class="categories active" href="/slotbooking">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-opd.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกทั้งหมด</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptAddmission">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-opd.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">ศูนย์บรรจุผู้ป่วย</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptHeart">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">ศูนย์โรคหัวใจ</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptSurgery">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกศัลยศาสตร์</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptMedicine">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกอายุรศาสตร์</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptPediatrics">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกกุมารเวชกรรม</h3>
+                                    </a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptObstetrics">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกสูติศาสตร์-นรีเวชวิทยา</h3>
+                                    </a>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <a class="categories " href="/deptOther">
+                                        <figure class="entry-icon object-fit">
+                                            <img src="https://painchula.com/wp-content/uploads/2021/07/ic-doctors.svg" alt="">
+                                        </figure>
+                                        <h3 class="entry-title size-sm">แผนกอื่นๆ</h3>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+
+
+
+                <div class="categories-break"><hr class="bg-black"></div>
+            </div>
+                            <div class="sc-content sc-spacing-x margin-bottom-lg">
+                <div class="blog-container type-grid">
+
+
+
+                    <a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%a8-%e0%b8%9e%e0%b8%8d-%e0%b8%aa%e0%b8%b8%e0%b8%9b%e0%b8%a3%e0%b8%b2%e0%b8%93%e0%b8%b5-%e0%b8%99%e0%b8%b4%e0%b8%a3%e0%b8%b8%e0%b8%95%e0%b8%95%e0%b8%b4%e0%b8%a8%e0%b8%b2%e0%b8%aa%e0%b8%99/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/standard-room-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Standard Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องStandard(สามัญ)</p>
+        </div>
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%a8-%e0%b8%99%e0%b8%9e-%e0%b8%aa%e0%b8%a1%e0%b8%a3%e0%b8%b1%e0%b8%95%e0%b8%99%e0%b9%8c-%e0%b8%88%e0%b8%b2%e0%b8%a3%e0%b8%b8%e0%b8%a5%e0%b8%b1%e0%b8%81%e0%b8%a9%e0%b8%93%e0%b8%b2%e0%b8%99/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/deluxe-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Deluxe Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องDeluxe(ห้องคู่)</p>
+        </div>
+
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%a3%e0%b8%a8-%e0%b8%99%e0%b8%9e-%e0%b8%9b%e0%b8%b4%e0%b9%88%e0%b8%99-%e0%b8%a8%e0%b8%a3%e0%b8%b5%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%88%e0%b8%b4%e0%b8%95%e0%b8%95%e0%b8%b4%e0%b8%8a%e0%b8%b1/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/studio-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Studio</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องStudio(ห้องเดี่ยว)</p>
+        </div>
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%9c%e0%b8%a8-%e0%b8%9e%e0%b8%b4%e0%b9%80%e0%b8%a8%e0%b8%a9-%e0%b8%99%e0%b8%9e-%e0%b8%a1%e0%b8%b2%e0%b8%a3%e0%b9%8c%e0%b8%a7%e0%b8%b4%e0%b8%99-%e0%b9%80%e0%b8%97%e0%b8%9e%e0%b9%82%e0%b8%aa/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/superior-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Superior Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องSuperior(ห้องเดี่ยว)</p>
+        </div>
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%9c%e0%b8%a8-%e0%b8%9e%e0%b8%b4%e0%b9%80%e0%b8%a8%e0%b8%a9%e0%b8%9e%e0%b8%8d-%e0%b8%9e%e0%b8%a3%e0%b8%9e%e0%b8%a3%e0%b8%a3%e0%b8%93-%e0%b9%80%e0%b8%89%e0%b8%a5%e0%b8%b4%e0%b8%a1%e0%b8%81/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/executive-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Executive Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องExecutive(ห้องเดี่ยว)</p>
+        </div>
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%ad-%e0%b8%99%e0%b8%9e-%e0%b8%9b%e0%b8%b1%e0%b8%95%e0%b8%a2%e0%b9%8c-%e0%b8%9b%e0%b8%b1%e0%b9%89%e0%b8%99%e0%b9%80%e0%b8%ab%e0%b8%99%e0%b9%88%e0%b8%87%e0%b9%80%e0%b8%9e%e0%b9%87%e0%b8%8a/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/Junior-Suite-1.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Junior Suite Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องJunior Suite</p>
+        </div>
+
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%ad-%e0%b8%9e%e0%b8%8d-%e0%b8%9b%e0%b8%ad%e0%b8%87%e0%b8%82%e0%b8%a7%e0%b8%b1%e0%b8%8d-%e0%b8%88%e0%b8%b4%e0%b8%99%e0%b8%b2%e0%b8%a7%e0%b8%a3%e0%b8%93%e0%b9%8c/">
+<figure class="media object-fit">
+            <img src="https://www.bangkokdeccon.co.th/bkd/wp-content/uploads/2021/01/V3G_3015-scaled.jpg" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">Bhumisiri Suite Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องBhumisiri Suite</p>
+        </div>
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%ad-%e0%b8%9e%e0%b8%8d-%e0%b8%9b%e0%b8%ad%e0%b8%87%e0%b8%82%e0%b8%a7%e0%b8%b1%e0%b8%8d-%e0%b8%88%e0%b8%b4%e0%b8%99%e0%b8%b2%e0%b8%a7%e0%b8%a3%e0%b8%93%e0%b9%8c/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/10/12.png" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">I.C.U Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องI.C.U</p>
+        </div>
+
+
+</a><a class="blog animate fadeIn" href="https://painchula.com/doctor/%e0%b8%ad-%e0%b8%9e%e0%b8%8d-%e0%b8%9b%e0%b8%ad%e0%b8%87%e0%b8%82%e0%b8%a7%e0%b8%b1%e0%b8%8d-%e0%b8%88%e0%b8%b4%e0%b8%99%e0%b8%b2%e0%b8%a7%e0%b8%a3%e0%b8%93%e0%b9%8c/">
+<figure class="media object-fit">
+            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/11/4-7.png" alt="">
+            <span class="cta"><span class="button next white">อ่านต่อ</span></span>
+</figure>
+<div class="meta">
+    <h3 class="entry-title weight-medium size-md">C.C.U Room</h3>
+            <p class="entry-desc font-heading weight-light size-sm">ห้องC.C.U</p>
+        </div>
+
+                    </div>
+            </div>
+                        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+        
+        <section>
+    <div class="sc-billboard blend">
+        <div class="sc-cover">
+            <div class="swiper-container default fade autoplay swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+                <div class="swiper-wrapper" style="transition-duration: 0ms;">
+                                            <div class="swiper-slide swiper-slide-prev" style="width: 1191px; opacity: 0; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                        <picture class="media object-fit">
+                            <source media="(min-width:992px)" srcset="https://painchula.com/wp-content/uploads/2021/07/index-gallery-scaled.jpg">
+                            <source media="(min-width:0px)" srcset="">
+                            <img src="https://painchula.com/wp-content/uploads/2021/07/index-gallery-scaled.jpg" alt="">
+                        </picture>
+                    </div>
+                                            <div class="swiper-slide swiper-slide-active" style="width: 1191px; opacity: 1; transform: translate3d(-1191px, 0px, 0px); transition-duration: 0ms;">
+                        <picture class="media object-fit">
+                            <source media="(min-width:992px)" srcset="https://painchula.com/wp-content/uploads/2021/07/service-cover2-scaled.jpg">
+                            <source media="(min-width:0px)" srcset="">
+                            <img src="https://painchula.com/wp-content/uploads/2021/07/service-cover2-scaled.jpg" alt="">
+                        </picture>
+                    </div>
+                                        </div>
+                <div class="swiper-pagination c-white swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        </div>
+    </div>
+</section>
+            <section class="gradient-theme-light">
+    <div class="sc-inner x2">
+        <div class="sc-container container">
+            <div class="sc-headline a-center">
+                <h2 class="sc-heading size-h2 c-theme animate fadeIn" style="visibility: hidden; animation-name: none;">
+                    <strong>“เพราะเราใส่ใจทุกชีวิต”</strong><br>
+                    <img class="wave filter-theme-medium animate" src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-x.svg" alt="" style="visibility: hidden; animation-name: none;">
+                </h2>
+                <h3 class="sc-desc weight-light size-h3 c-gray animate fadeIn" style="visibility: hidden; animation-name: none;">เราพร้อมให้บริการด้วยทีมแพทย์ผู้เชี่ยวชาญ <br class="hidden-mobile">และเครื่องมือทางการแพทย์ที่ทันสมัย</h3>
+            </div>
+        </div>
+    </div>
+    <div class="scene index01"><i class="ic ic-hospital" style="background-color:#d1e2e8;"></i></div>
+    <div class="scene index02">
+        <i class="ic ic-hospital bg-gradient"></i>
+        <i class="ic ic-hospital bg-img" data-bgimg-src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/scene-index1.jpg" alt="" style="background-image: url(&quot;https://painchula.com/wp-content/themes/PMRU/assets/img/design/scene-index1.jpg&quot;);"></i>
+    </div>
+    <div class="scene index03 hidden-device-sm">
+        <i class="ic ic-hospital bg-gradient"></i>
+        <i class="ic ic-hospital bg-img" data-bgimg-src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/scene-index2.jpg" alt="" style="background-image: url(&quot;https://painchula.com/wp-content/themes/PMRU/assets/img/design/scene-index2.jpg&quot;);"></i>
+    </div>
+</section>
+
+
+
+<div class="spacing-footer"></div>
+</main>
+
+        <footer id="footer">
+            <div class="curve">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2700 134.78" preserveAspectRatio="none"><path fill="var(--color-theme-light)" d="M2700,63.76v71H0V82.05c9.23,1.71,18.89,3.9,28.68,5.26,33.52,4.68,67,9.91,100.65,13.45,114.24,12,228.92,15,343.69,14.76a1756.14,1756.14,0,0,0,212.05-13.44c68.68-8.52,136.69-21,204.38-35.22C941.07,56,992.64,45,1044.36,34.77c75.87-15,152.29-26.09,229.54-31.28,58.37-3.92,116.71-5.09,175-.62a1433.27,1433.27,0,0,1,180,25.31c65.47,13.49,130.68,28.26,196,42.08,53,11.19,106,22.51,159.28,32.5a976.15,976.15,0,0,0,161,16.95c51.52,1,103.09,2,154.59.85,65.26-1.48,130.26-7.39,195-16.31,68.36-9.42,136.13-21.76,202.64-40.47A11.8,11.8,0,0,1,2700,63.76Z"></path></svg>
+            </div>
+            <a id="backtotop" href="javascript:;"><img src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-y.svg" alt="" class="filter-theme-medium"><span>Back to Top</span></a>
+            
+            
+            <div class="footer-container">
+                <div class="footer-nav container xl">
+                    <div class="footer-contact animate fadeIn" style="visibility: hidden; animation-name: none;">
+                        <address>Bhumisiri Mangkhalanusorn Building, 1873 Rama IV Rd, Pathum Wan, Pathum Wan District, Bangkok 10330</address>
+                        <ul class="contact">
+<li class="type-phone"><a href="tel:+6622564000">02 256 4000 ext 4345</a></li>
+<li class="type-mail"><a href="mailto:bedbooking.cu@gmail.com">bedbooking.cu@gmail.com</a></li><!--
+
+<li class="type-callcenter"><a class="callcenter" href="tel:1466"><i class="ic ic-phone"></i><span class="ic-name">1466</span></a></li>
+-->
+</ul>                        </div>
+
+                    <div class="footer-social animate fadeIn" style="visibility: hidden; animation-name: none;">
+                        <div class="social">
+<a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
+<a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
+<a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+
+</div>                        </div>
+                    
+                    <div class="footer-menu animate fadeIn" style="visibility: hidden; animation-name: none;">
+                        <ul class="menu main-menu">
+                            <li><a href="/about">About Us</a></li>
+
+                        </ul>
+                        <ul class="menu other-menu">
+                            <li><a href="https://painchula.com/cookie-policy/">Cookie Policy</a></li>
+                            <li><a href="https://painchula.com/terms-conditions/">Terms &amp; Conditions</a></li>
+                            <li><a href="https://painchula.com/privacy-policy/">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-legal container xl">
+                    <p class="copyright">©PMRU. All rights reserved. <span class="webby">Web by <a class="plaimanas" href="https://www.plaimanas.com" target="_blank">::*</a></span></p>
+                </div>
+            </div>
+        </footer>
+    </div><!-- #page - close -->
+    
+    <a href="#popup-status" class="popup-ctrl open-popup-modal">&nbsp;</a>
+<div id="popup-status" class="scene-parent mfp-hide">
+<div class="modal-box gradient-theme-light">
+    <a href="javascript:;" class="modal-dismiss">&nbsp;</a>
+    <div class="box-content">
+        <div class="entry-header a-center">
+            <h2 class="entry-title size-h2 c-theme"><strong>สวัสดีค่ะ</strong></h2>
+            <h3 class="entry-desc size-h5 c-gray">กรุณาเลือกสถานะการรับบริการของคุณ</h3>
+            <img class="wave filter-theme-medium" src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-x.svg" alt="">
+        </div>
+        <div class="entry-form">
+            <form>
+                <div class="status-container">
+                    <a href="#popup-account" class="status open-popup-modal" onclick="setSelectedRole('1');">
+                    <label class="choice">
+                            <input type="radio" name="status">
+                            <span>
+                                <span class="entry-icon object-fit"><img src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/ic-doctors.svg" alt=""></span>
+                                <span class="entry-title size-lg">บุคลากรทางการแพทย์</span>
+                            </span>
+                        
+                    </label>
+                    </a>
+                    <a onclick="setSelectedRole('2');" class="status modal-close">
+                    <label class="choice">
+                        <input type="radio" name="status">
+                        <span>
+                            <span class="entry-icon object-fit"><img src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/ic-guest.svg" alt=""></span>
+                            <span class="entry-title size-lg">บุคคลทั่วไป</span>
+                        </span>
+                    </label>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="scene modal01"><i class="ic ic-hospital" style="background-color:#d25f7b;"></i></div>
+<div class="scene modal02"><i class="circle" style="background-color:#d1e2e8;"></i></div>
+</div>
+
+
+
+<div id="popup-account" class="scene-parent mfp-hide">
+    <div class="modal-box gradient-theme-light tabdata-container">
+        <a href="javascript:;" class="modal-dismiss">&nbsp;</a>
+        <div class="box-content">
+            <div class="entry-header a-center">
+                <div class="tabdata-content active" data-id="tab-login">
+                    <h2 class="entry-title size-h2 c-theme"><strong>สมัครสมาชิก</strong></h2>
+                    <p class="entry-desc">---</p>
+                </div>
+
+                <div class="tabdata-content" data-id="tab-register">
+                    <h2 class="entry-title size-h2 c-theme"><strong>เข้าสู่ระบบ</strong></h2>
+                    <p class="entry-desc">---</p>
+                </div>
+
+                <img class="wave filter-theme-medium" src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/wave-x.svg" alt="">
+            </div>
+
+
+
+
+
+
+
+
+            <div class="entry-form">
+                <div class="tabdata-content active" data-id="tab-login">    
+										<div id="user-registration" class="user-registration">
+    <div class="ur-frontend-form login" id="ur-frontend-form">
+
+<!-- ตรงนี้ -->
+        <form class="user-registration-form user-registration-form-login login" method="POST" id="login" action="">
+
+
+            <div class="ur-form-row">
+                <div class="ur-form-grid">
+                    <div id="flash-message-container">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                          {% for category, message in messages %}
+                            <div class="flash-message2 {{ category }}">{{ message }}</div>
+                          {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                      </div>
+
+
+                    
+                    <form method="POST" action="/">
+
+                        <!-- เพิ่มฟิลด์ action สำหรับ Sign In -->
+                        <input type="hidden" name="action" value="signup">
+
+
+                        <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide input"></p>
+
+                            <div  data-field-id="input_box_1626072126" class="ur-field-item field-text ">
+                                <div class="form-row " id="input_box_1626072126_field" data-priority="" >
+                                    <label for="input_box_1626072126" class="ur-label">หมายเลขใบอนุญาตทางการแพทย์</label>
+                                    <input type="text" class="user-registration-Input user-registration-Input--text input-text" name="emp_id" id="emp_id" required>
+                                </div>															
+                            </div>
+
+                        </p>
+
+                        <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide input"></p>
+                            <div  data-field-id="user_email" class="ur-field-item field-user_email ">
+                                <div class="form-row validate-required" id="user_email_field" data-priority="" >
+                                    <label for="user_email" class="ur-label">ชื่อผู้ใช้ <abbr class="required" title="required">*</abbr></label>
+                                    <input type="username" class="user-registration-Input user-registration-Input--text input-text" name="username" id="username" required>
+                                </div>															
+                            </div>
+                        </p>
+
+                        <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide"></p>
+
+
+                            <div  data-field-id="user_pass" class="ur-field-item field-user_pass ">
+                                <div class="form-row validate-required hide_show_password" id="user_pass_field" data-priority="">
+                                    <label for="password">รหัสผ่าน <span class="required">*</span></label>
+                                    <span class="password-input-group">
+                                    <input type="password" class="user-registration-Input user-registration-Input--text input-text"  name="password" id="password" required>
+                                    </span>
+                                </div>															
+                            </div>
+
+                        </p>
+                            
+                        <p class="form-row">
+                            <button id="registbut" type="submit">REGISTER</button>
+                        </p>
+                    </form>
+
+					<p class="status a-center"></p>
+
+					<input type="hidden" id="security" name="security" value="5397c978d7" /><input type="hidden" name="_wp_http_referer" value="/about/" />                </div>
+            </div>
+			
+        </form>        
+    </div>
+</div>
+                </div>
+
+                <div class="tabdata-content" data-id="tab-register">
+                    <div class='user-registration ur-frontend-form  ' id='user-registration-form-71'>
+    <form method='post' class='register' data-form-id="71"
+          data-enable-strength-password="" data-minimum-password-strength="3"  data-captcha-enabled="">
+
+                                <div class='ur-form-row'>
+                                                            <div class="ur-form-grid ur-grid-1"
+                                         style="width:99%">
+
+<!-- ตรงนี้ -->
+
+
+
+    <div class="ur-form-row">
+        <div class="ur-form-grid">
+            <div id="flash-message-container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="flash-message2 {{ category }}">{{ message }}</div>
+                  {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>
+
+
+            
+            <form method="POST" action="/">
+
+                <!-- เพิ่มฟิลด์ action สำหรับ Sign Up -->
+                <input type="hidden" name="action" value="signin">
+
+                <!-- <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide input"></p>
+                    <label for="fullname">ชื่อ-สกุล<span class="required">*</span></label>
+                    <input type="username" class="user-registration-Input user-registration-Input--text input-text" name="fullname" id="fullname" required>
+                </p> -->
+
+<!-- 
+                <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide input"></p>
+                    <label for="phonenumber">เบอร์โทรศัพท์<span class="required">*</span></label>
+                    <input type="phonenumber" class="user-registration-Input user-registration-Input--text input-text" name="phonenumber" id="phonenumber" required>
+                </p> -->
+                
+                <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide input"></p>
+                    <label for="username">ชื่อผู้ใช้<span class="required">*</span></label>
+                    <input type="username" class="user-registration-Input user-registration-Input--text input-text" name="username" id="username" required>
+                </p>
+
+                <p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide"></p>
+                    <label for="password">รหัสผ่าน <span class="required">*</span></label>
+                    <span class="password-input-group">
+                    <input type="password" class="user-registration-Input user-registration-Input--text input-text"  name="password" id="password" required>
+                    </span>
+                </p>
+                    
+                <p class="form-row">
+                    <button id="loginbut" type="submit">SIGN IN</button>
+                </p>
+            </form>
+
+            <p class="status a-center"></p>
+
+            <input type="hidden" id="security" name="security" value="5397c978d7" /><input type="hidden" name="_wp_http_referer" value="/about/" />                </div>
+    </div>
+    
+</form>        
+</div>
+</div>
+        </div>
+					
+			<div style="clear:both"></div>
+			<input type="hidden" name="ur-user-form-id" value="71"/>
+			<input type="hidden" name="ur-redirect-url" value=""/>
+			<input type="hidden" id="ur_frontend_form_nonce" name="ur_frontend_form_nonce" value="2f5c5340aa" />
+					</form>
+
+		<div style="clear:both"></div>
+	</div>
+                </div>
+
+                <div class="tabdata">
+                    <div class="control">
+                        <a href="javascript:;" data-id="tab-login" class="active">ลงทะเบียนสมัครสมาชิก</a>
+                        <a href="javascript:;" data-id="tab-register">เข้าสู่ระบบ</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="scene modal03"><i class="circle bg-gradient2"></i></div>
+    <div class="scene modal04"><i class="ic ic-hospital" style="background-color:#d1e2e8;"></i></div>
+</div>
+<script type="text/javascript">
+
+jQuery(document).ready(function($){
+    var getSelectedRole = localStorage.getItem('selectedRole');
+    if(!getSelectedRole){
+        setTimeout(function(){
+            $('.popup-ctrl').trigger('click');
+        },100);
+    }
+});
+</script>
+
+    <!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true" data-cli-style="cli-style-v2" style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: inherit; bottom: 0px; position: fixed; display: none;"><span><div class="cli-bar-container cli-style-v2"><div class="cli-bar-message">We use cookies on our website to give you the most relevant experience by remembering your preferences and repeat visits. By clicking “Accept All”, you consent to the use of ALL the cookies. However, you may visit "Cookie Settings" to provide a controlled consent.</div><div class="cli-bar-btn_container"><a role="button" tabindex="0" class="cli_settings_button" style="margin: 0px 5px 0px 0px; color: rgb(51, 51, 51);">Cookie Settings</a><a id="wt-cli-accept-all-btn" tabindex="0" role="button" data-cli_action="accept_all" class="wt-cli-element cli-plugin-main-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button" style="color: rgb(255, 255, 255);">Accept All</a></div></div></span></div><div id="cookie-law-info-again" style="display: none; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); position: fixed; font-family: inherit; width: auto; bottom: 0px; right: 100px;" data-nosnippet="true"><span id="cookie_hdr_showagain">Manage consent</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+<div class="cli-modal-dialog" role="document">
+<div class="cli-modal-content cli-bar-popup">
+      <button type="button" class="cli-modal-close" id="cliModalClose">
+        <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+        <span class="wt-cli-sr-only">Close</span>
+      </button>
+      <div class="cli-modal-body">
+        <div class="cli-container-fluid cli-tab-container">
+<div class="cli-row">
+    <div class="cli-col-12 cli-align-items-stretch cli-px-0">
+        <div class="cli-privacy-overview">
+            <h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+                <div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the ...</div>
+            </div>
+            <a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+    </div>
+    <div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+                                            <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+                            Necessary							</a>
+                        <div class="wt-cli-necessary-checkbox">
+                    <input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked="checked">
+                    <label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+                </div>
+                <span class="cli-necessary-caption">Always Enabled</span> 						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="necessary">
+                            <p>Necessary cookies are absolutely essential for the website to function properly. These cookies ensure basic functionalities and security features of the website, anonymously.
+</p><table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duration</th><th class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-analytics</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Analytics".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-functional</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category "Functional".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-necessary</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookies is used to store the user consent for the cookies in the category "Necessary".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-others</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Other.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-performance</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Performance".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">viewed_cookie_policy</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by the GDPR Cookie Consent plugin and is used to store whether or not user has consented to the use of cookies. It does not store any personal data.</td></tr></tbody></table><p></p>
+                        </div>
+                    </div>
+                </div>
+                                                                <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="functional" data-toggle="cli-toggle-tab">
+                            Functional							</a>
+                        <div class="cli-switch">
+                    <input type="checkbox" id="wt-cli-checkbox-functional" class="cli-user-preference-checkbox" data-id="checkbox-functional">
+                    <label for="wt-cli-checkbox-functional" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Functional</span></label>
+                </div>						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="functional">
+                            <p>Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.
+</p>
+                        </div>
+                    </div>
+                </div>
+                                                                <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="performance" data-toggle="cli-toggle-tab">
+                            Performance							</a>
+                        <div class="cli-switch">
+                    <input type="checkbox" id="wt-cli-checkbox-performance" class="cli-user-preference-checkbox" data-id="checkbox-performance">
+                    <label for="wt-cli-checkbox-performance" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Performance</span></label>
+                </div>						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="performance">
+                            <p>Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.
+</p>
+                        </div>
+                    </div>
+                </div>
+                                                                <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+                            Analytics							</a>
+                        <div class="cli-switch">
+                    <input type="checkbox" id="wt-cli-checkbox-analytics" class="cli-user-preference-checkbox" data-id="checkbox-analytics">
+                    <label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Analytics</span></label>
+                </div>						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="analytics">
+                            <p>Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+</p>
+                        </div>
+                    </div>
+                </div>
+                                                                <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="advertisement" data-toggle="cli-toggle-tab">
+                            Advertisement							</a>
+                        <div class="cli-switch">
+                    <input type="checkbox" id="wt-cli-checkbox-advertisement" class="cli-user-preference-checkbox" data-id="checkbox-advertisement">
+                    <label for="wt-cli-checkbox-advertisement" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Advertisement</span></label>
+                </div>						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="advertisement">
+                            <p>Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.
+</p>
+                        </div>
+                    </div>
+                </div>
+                                                                <div class="cli-tab-section">
+                    <div class="cli-tab-header">
+                        <a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="others" data-toggle="cli-toggle-tab">
+                            Others							</a>
+                        <div class="cli-switch">
+                    <input type="checkbox" id="wt-cli-checkbox-others" class="cli-user-preference-checkbox" data-id="checkbox-others">
+                    <label for="wt-cli-checkbox-others" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Others</span></label>
+                </div>						</div>
+                    <div class="cli-tab-content">
+                        <div class="cli-tab-pane cli-fade" data-id="others">
+                            <p>Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.
+</p>
+                        </div>
+                    </div>
+                </div>
+                                    </div>
+</div>
+</div>
+      </div>
+      <div class="cli-modal-footer">
+        <div class="wt-cli-element cli-container-fluid cli-tab-container">
+            <div class="cli-row">
+                <div class="cli-col-12 cli-align-items-stretch cli-px-0">
+                    <div class="cli-tab-footer wt-cli-privacy-overview-actions">
+                    
+                                                        <a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+                                                </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay" style="display: block;"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay" style="display: block;"></div>
+<!--googleon: all--><link rel="stylesheet" id="cookie-law-info-table-css" href="https://painchula.com/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-table.css?ver=2.0.4" type="text/css" media="all">
+<script type="text/javascript" src="https://painchula.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.11" id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/painchula.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.4.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/devvn-image-hotspot/frontend/js/jquery.ihotspot.min.js?ver=1.2.1" id="ihotspot-js-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/library/vendor.bundle.js?ver=6.3.1" id="vendor-bundle-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/plugin/select2/select2.min.js?ver=6.3.1" id="select2-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/plugin/magnific-popup/jquery.magnific-popup.min.js?ver=6.3.1" id="magnific-popup-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/plugin/swiper/swiper.min.js?ver=6.3.1" id="swiper-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/plugin/plyr/plyr.polyfilled.min.js?ver=6.3.1" id="ply-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/theme.js?ver=3" id="theme-js-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/wp-theme.js?ver=6.3.1" id="wp-theme-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/themes/PMRU/assets/js/page-organ.js?ver=6.3.1" id="page-organ-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/user-registration/assets/js/frontend/jquery.validate.min.js?ver=1.15.1" id="ur-jquery-validate-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/user-registration/assets/js/inputmask/jquery.inputmask.bundle.min.js?ver=4.0.0-beta.58" id="ur-inputmask-js"></script>
+<script type="text/javascript" id="user-registration-js-extra">
+/* <![CDATA[ */
+var user_registration_params = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php","user_registration_form_data_save":"3fa857add4","user_registration_profile_details_save":"ca3df10088","user_registration_profile_picture_upload_nonce":"98f0bef2d5","form_required_fields":["user_email","user_pass"],"login_option":"admin_approval","user_registration_profile_picture_uploading":"Uploading...","ajax_submission_on_edit_profile":"no","message_required_fields":"This field is required.","message_email_fields":"Please enter a valid email address.","message_url_fields":"Please enter a valid URL.","message_number_fields":"Please enter a valid number.","message_confirm_password_fields":"Password and confirm password not matched.","message_validate_phone_number":"Please enter a valid phone number.","message_username_character_fields":"Please enter a valid username.","message_confirm_email_fields":"Email and confirm email not matched.","message_confirm_number_field_max":"Please enter a value less than or equal to %qty%.","message_confirm_number_field_min":"Please enter a value greater than or equal to %qty%.","message_confirm_number_field_step":"Please enter a multiple of %qty%.","ursL10n":{"user_successfully_saved":"User successfully registered.","user_under_approval":"User registered. Wait until admin approves your registration.","user_email_pending":"User registered. Verify your email by clicking on the link sent to your email.","captcha_error":"Captcha code error, please try again.","hide_password_title":"Hide Password","show_password_title":"Show Password","password_strength_error":"Password strength is not strong enough"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/user-registration/assets/js/frontend/user-registration.min.js?ver=1.9.9" id="user-registration-js"></script>
+<script type="text/javascript" src="https://painchula.com/wp-content/plugins/user-registration/assets/js/frontend/user-registration-form-validator.min.js?ver=1.9.9" id="ur-form-validator-js"></script>
+
+
+
+
+<!-- ทำให้เลื่อนลงมาfooterเมื่อกด contact -->
+<script>
+    document.querySelector('a[href="#contact"]').addEventListener('click', function (e) {
+        e.preventDefault();
+    
+        const contactSection = document.getElementById('footer'); // เลือกส่วนที่ต้องการเลื่อนไป
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' }); // เลื่อนไปยังส่วนที่เลือก
+        }
+    });
+</script>
+
+<div id="powerTip"></div></body></html>

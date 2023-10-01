@@ -1,0 +1,68 @@
+
+
+
+<!-- 
+
+
+    ******** base สำหรับ หน้า sign in sign up เก่า *********
+
+
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}
+        {% endblock title %}
+        <link rel="stylesheet" type="text/css" href="static\signin.css">
+    </head>
+
+
+
+
+
+
+    
+    <body>
+        <!-- nav -->
+        <div class="menubar">
+            <header>
+                <a href="/" class="logo">King Chulalongkorn Memorial Hospital</a>
+                <ul class="menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/slotbooking">Available Beds</a></li>
+                    <li><a href="/">Contact</a></li>
+                    <!-- <li class="dropdown" id="signInDropdown"><a href="#"><span>Sign In</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/signin">User Login<br></a></li>
+                            <li><a href="/admin">Admin Login<br></a></li>
+                            <li><a href="/signup">Sign Up<br></a></li>
+                        </ul>
+                    </li> -->
+                    <!-- <button Class="book"><a href="/slotbooking">Book bed slot now</a></button> -->
+                </ul>
+            </header>
+        </div>
+
+
+        <!-- sign in page -->
+        <div class="home">
+            <img src="static\logoh.png" id="logoh">
+            <h2 id="sign-in"></h2>
+        </div>
+
+        
+        <!-- content -->
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="copyright">
+            <p>Copyright© 2023 <span id="by">BAANYANG.</span> All rights reserverd.</p>
+        </div>
+    </body>
+
+</html>

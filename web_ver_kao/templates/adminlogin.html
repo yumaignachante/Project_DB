@@ -1,0 +1,42 @@
+
+
+
+<!-- 
+
+  ******** อันนี้ไฟล์ adminlogin.html อันเก่า ไม่ได้ใช้แแล้ว *******
+
+ -->
+
+
+
+{% extends 'basesignin.html' %}
+{% block content %}
+
+
+<title>Admin Login</title>
+<h2 id="sign-in">Admin Login</h2>
+
+
+
+<div id="flash-message-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message2 {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+<form action="" method="post">
+    <div class="form-group">
+        <input type="username" class="form-control mt-2" placeholder="Enter the username" name="adminuser" required>
+        <input type="password" class="form-control mt-2" placeholder="Enter the password" name="adminpassword" required>
+
+    </div>
+
+    <br>
+    <button Class="sign-in2">Sign In</button>
+</form>
+
+{% endblock %}

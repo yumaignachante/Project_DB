@@ -1,0 +1,68 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if current_user.username == 'admin'%}
+    <title>Update Bed</title>
+{% elif current_user.username != 'admin' %}
+    <title>Bed Details</title>
+{% endif %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+{% if current_user.username == 'admin'%}
+        <h1 class="mt-5">Update Bed</h1>
+{% elif current_user.username != 'admin' %}
+        <h1 class="mt-5">Bed {{ bed.bed_id }} Details</h1>
+{% endif %}
+        <hr>
+        <form action="{{ url_for('edit_bed', bed_id=bed.bed_id) }}" method="post">
+            <div class="mb-3">
+                <label for="bed_id" class="form-label">Bed ID</label>
+                <input type="text" class="form-control" name="bed_id" 
+                    value="{{ bed.bed_id }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="room_id" class="form-label">Room ID</label>
+                <input type="text" class="form-control" name="room_id"
+                    value="{{ bed.room_id }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="bed_type">Bed Type</label>
+                <input type="text" class="form-control" name="bed_type" 
+                    value="{{ bed.bed_type }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="bed_status">Bed Status</label>
+                <input type="text" class="form-control" name="bed_status"
+                    value="{{ bed.bed_status }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="dept_name">Department Name</label>
+                <textarea name="dept_name" class="form-control" required>{{ bed.dept_name }}</textarea>
+            </div>
+
+{% if current_user.username == 'admin'%}
+            <button type="submit" name="update" class="btn btn-success">Update</button>
+{% elif current_user.username != 'admin' %}
+            <a href="/slotbooking" class="btn btn-secondary">Back to Book Bed Slot</a>
+{% endif %}
+        </form>
+    </div>
+
+    <!-- แทรกรายการสคริปต์ของ Bootstrap และอื่น ๆ ตามต้องการ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    
+</body>
+</html>

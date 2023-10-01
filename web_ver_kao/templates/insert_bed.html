@@ -1,0 +1,53 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Bed</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container">
+        <a href="{{ url_for('index_php') }}" class="btn btn-primary mt-3">Go Back</a>
+        <hr>
+        <h1 class="mt-5">Insert Bed</h1>
+        <hr>
+        <form action="{{ url_for('insert_bed') }}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.bed_id.label(class="form-label") }}
+                {{ form.bed_id(class="form-control", required=true) }}
+            </div>
+            <div class="mb-3">
+                {{ form.room_id.label(class="form-label") }}
+                {{ form.room_id(class="form-control", required=true) }}
+            </div>
+            <div class="mb-3">
+                {{ form.bed_type.label(class="form-label") }}
+                {{ form.bed_type(class="form-control", required=true) }}
+            </div>
+            <div class="mb-3">
+                {{ form.bed_status.label(class="form-label") }}
+                {{ form.bed_status(class="form-control", required=true) }}
+            </div>
+            <div class="mb-3">
+                {{ form.dept_name.label(class="form-label") }}
+                {{ form.dept_name(class="form-control", required=true) }}
+            </div>
+            <button type="submit" class="btn btn-success">Insert</button>
+        </form>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>
