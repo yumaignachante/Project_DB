@@ -191,9 +191,20 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                             
 
 <!-- login อยู่ในระบบ -->
+{% if current_user.username != 'admin' %}
                             <ul class="menu main-menu right">
 
-                                <li><a><span>Welcome {{current_user.username}}</span></a></li>
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
                                 
 
                                 <li class="has-dropdown">
@@ -201,15 +212,44 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                     <a class="menu-dropdown-ctrl" href="javascript:;"></a>
                                     <div class="menu-dropdown">
                                         <ul>
-
-{% if current_user.username == 'admin' %}
-                                            <li><a href="/admin">Admin session</a></li>
-{% endif %}
                                             <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                            <li><a href="/booking">Booking History</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+{% elif current_user.username == 'admin' %}
+                            <ul class="menu main-menu right">
+
+
+                                <li><a href="/admin">Admin session</a></li>
+
+                                <li class="has-dropdown beds-dropdown">
+                                    <a class="readonly " href="javascript:;">Available Beds</a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/index.php">Manage Beds</a></li>
+                                            <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                            <li><a href="/booking">Booking History</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
                                             <li><a href="/logout">Logout</a></li>
                                         </ul>
-                                                                                </div>
-                                                                                                                </li>
+                                    </div>
+                                </li>
+                                        
+{% endif %}
+
 
 
                             <!-- <li class="dropdown" id="signInDropdown"><a href="#"><span>Welcome {{current_user.username}}</span> <i class="bi bi-chevron-down"></i></a>
@@ -232,7 +272,7 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                 <a class="readonly " href="javascript:;"></a>
                                 <a class="menu-dropdown-ctrl" href="javascript:;"></a>
                                 <div class="menu-dropdown">
-                                                                                <ul>
+                                    <ul>
                                         <li><a href="/admin">Admin session</a></li>
                                     </ul>
                                 </div>
@@ -242,7 +282,8 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                 <li class="m-account readonly "><a href="#popup-account" class="button open-popup-modal">Sign In/Sign Up</a></li>
                                 <a class="menu-dropdown-ctrl" href="javascript:;"></a>
                                     <div class="menu-dropdown">
-                                    </div>                        </ul>
+                                    </div>                        
+                        </ul>
 {% endif %}
 
 
@@ -250,17 +291,18 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
 
                             <div class="detail container xl">
 								<div class="social">
-    <a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
-    <a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
-    <a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+                                    <a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
+                                    <a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
+                                    <a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+                                </div>
+                                <ul class="contact">
+                                    <li class="type-phone"><a href="tel:+6622564000">02 256 4000 ext 4345</a></li>
+                                    <li class="type-mail"><a href="mailto:bedbooking.cu.com">bedbooking.cu@gmail.com</a></li><!--
 
-    </div>								<ul class="contact">
-        <li class="type-phone"><a href="tel:+6622564000">02 256 4000 ext 4345</a></li>
-        <li class="type-mail"><a href="mailto:bedbooking.cu.com">bedbooking.cu@gmail.com</a></li><!--
-
-    <li class="type-callcenter"><a class="callcenter" href="tel:1466"><i class="ic ic-phone"></i><span class="ic-name">1466</span></a></li>
--->
-</ul>                            </div>
+                                <li class="type-callcenter"><a class="callcenter" href="tel:1466"><i class="ic ic-phone"></i><span class="ic-name">1466</span></a></li>
+                            -->
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,7 +318,7 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                     <source src="https://media.istockphoto.com/id/1311583056/th/%E0%B8%A7%E0%B8%B4%E0%B8%94%E0%B8%B5%E0%B9%82%E0%B8%AD/%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B8%94%E0%B9%8D%E0%B8%B2%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B2%E0%B8%8A%E0%B8%B5%E0%B8%9E%E0%B8%AA%E0%B8%A7%E0%B8%A1%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%81%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%A1%E0%B8%B1%E0%B8%A2%E0%B8%97%E0%B9%8D%E0%B8%B2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%B0%E0%B8%AD%E0%B8%B2%E0%B8%94%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B9%88%E0%B8%A7%E0%B8%A2-covi.mp4?s=mp4-640x640-is&k=20&c=OBaFgwGEafgUSsN3kwjORNVbZfXrNrp89GdUT3H00lE=" type="video/mp4">
                                 </video>
 
-                                                            </div>
+                            </div>
                         </div>
                     </div>
 
@@ -405,11 +447,11 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
 
                         <div class="footer-social animate fadeIn">
 							<div class="social">
-    <a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
-    <a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
-    <a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
-
-    </div>                        </div>
+                                <a href="#" target="_blank"><i class="ic ic-facebook"></i></a>
+                                <a href="#" target="_blank"><i class="ic ic-instagram"></i></a>
+                                <a href="#" target="_blank"><i class="ic ic-lineat"></i></a>
+                            </div>
+                        </div>
                         
                         <div class="footer-menu animate fadeIn">
                             <ul class="menu main-menu">

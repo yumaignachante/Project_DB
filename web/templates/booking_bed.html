@@ -1,0 +1,229 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if current_user.username == 'admin'%}
+    <title>Booking Bed</title>
+{% elif current_user.username != 'admin' %}
+    <title>Booking Bed</title>
+{% endif %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        <form action="{{ url_for('booking_bed', bed_id=bed.bed_id) }}" method="post">
+
+        <div class="row">
+            <div class="col-md-6"> <!-- คอลัมน์ซ้าย -->
+        {% if current_user.username == 'admin'%}
+                <h1 class="mt-5">Booking Bed ID: {{ bed.bed_id }}</h1>
+        {% elif current_user.username != 'admin' %}
+                <h1 class="mt-5">Booking Bed ID: {{ bed.bed_id }}</h1>
+                <a href="/slotbooking" class="btn btn-secondary">Back to Available Beds</a>
+        {% endif %}
+                <hr>
+            <div class="container">
+                
+                <h2 class="mt-5">{{ bed.room_type }} Room</h2>
+                    <figure class="media object-fit" >
+                        {% if bed.room_type == 'Standard' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/standard-room-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Deluxe' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/deluxe-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Studio' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/studio-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Superior' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/superior-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Executive' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/executive-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Junior Suite ' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/12/Junior-Suite-1.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'Bhumisiri Suite' %}
+                            <img src="https://www.bangkokdeccon.co.th/bkd/wp-content/uploads/2021/01/V3G_3015-scaled.jpg" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'I.C.U' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/10/12.png" alt="" style="width: 500px; height: 300px;">
+                        {% elif bed.room_type == 'C.C.U' %}
+                            <img src="https://chulalongkornhospital.go.th/kcmh/wp-content/uploads/2020/11/4-7.png" alt="" style="width: 500px; height: 300px;">
+                        {% endif %}
+                        </figure>
+            </div>
+            <div class="container">
+                
+                    <div class="mb-3">
+                        <label for="bed_id" class="form-label">Bed ID</label>
+                        <input type="text" class="form-control" style="width: 200px;" name="bed_id" 
+                            value="{{ bed.bed_id }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="room_id" class="form-label">Room ID</label>
+                        <input type="text" class="form-control" style="width: 200px;" name="room_id"
+                            value="{{ bed.room_id }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bed_type">Bed Type</label>
+                        <input type="text" class="form-control" style="width: 200px;" name="bed_type" 
+                            value="{{ bed.bed_type }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bed_status">Bed Status</label>
+                        <input type="text" class="form-control" style="width: 200px;" name="bed_status"
+                            value="{{ bed.bed_status }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dept_name">Department Name</label>
+                        <textarea name="dept_name" class="form-control" style="width: 200px;" >{{ bed.dept_name }}</textarea>
+                    </div>
+                </div>
+
+            </div>
+        
+    
+
+            <div class="col-md-6"> <!-- คอลัมน์ขวา -->
+                <form action="{{ url_for('booking_bed', bed_id=bed.bed_id) }}" method="post">
+                <div class="container">
+                    <!-- ------------------------ Patient Info --------------------------- -->
+                    <h1 class="mt-5">Patient Info</h1>
+                    <hr>
+
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_ssn" class="form-label">Patient SSN</label>
+                        <input type="text" class="form-control" name="pt_ssn" id="pt_ssn" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button type="button" id="applyBtn" class="btn btn-dark">Check</button>
+                    </div>
+
+                    <br>
+                    
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_fname" class="form-label">Firstname</label>
+                        <input type="text" class="form-control" name="pt_fname" id="pt_fname"
+                            value="{{ patient_info.pt_fname }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_lname">Lastname</label>
+                        <input type="text" class="form-control" name="pt_lname" id="pt_lname"
+                            value="{{ patient_info.pt_lname }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_dob">Date Of Birth</label>
+                        <input type="date" class="form-control" name="pt_dob" id="pt_dob"
+                            value="{{ patient_info.pt_dob }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_age">Age</label>
+                        <input type="text" class="form-control" name="pt_age" id="pt_age"
+                            value="{{ patient_info.pt_age }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_gender">Gender</label>
+                        <input type="text" class="form-control" name="pt_gender" id="pt_gender"
+                            value="{{ patient_info.pt_gender }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_adn">Addmission Number</label>
+                        <input type="text" class="form-control" name="pt_adn" id="pt_adn"
+                            value="{{ patient_info.pt_adn }}" required>
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="pt_phone_number">Phone Number</label>
+                        <input type="text" class="form-control" name="pt_phone_number" id="pt_phone_number"
+                            value="{{ patient_info.pt_phone_number }}" >
+                    </div>
+                    <div class="mb-3" style="width: 300px;">
+                        <label for="trauma_id">Trauma ID</label>
+                        <input type="text" class="form-control" name="trauma_id" id="trauma_id"
+                            value="{{ patient_info.trauma_id }}" required>
+                    </div>
+
+
+                    <br>
+                    <div class="col-md-6">
+                        <button type="submit" name="bookbed" class="btn btn-success">Book Bed Slot</button>
+                    </div>
+
+
+
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- แทรกรายการสคริปต์ของ Bootstrap และอื่น ๆ ตามต้องการ -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    
+
+    <!-- ระบุข้อมูล Patient อัตโนมัติ -->
+    <script>
+        document.getElementById("applyBtn").addEventListener("click", function() {
+            const pt_ssn = document.getElementById("pt_ssn").value;
+            const bed_id = "{{ bed.bed_id }}";
+            
+            if (pt_ssn) {
+                const apiUrl = `/booking_/${bed_id}?pt_ssn=${pt_ssn}&bed_id=${bed_id}`; // แนบ bed_id ใน URL
+                fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        // หากคำขอไม่สำเร็จ (ไม่พบข้อมูลผู้ป่วย)
+                        throw new Error('ไม่พบข้อมูลผู้ป่วย');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // หากสำเร็จในการรับข้อมูลผู้ป่วย
+                    document.getElementById("pt_fname").value = data.pt_fname || '';
+                    document.getElementById("pt_lname").value = data.pt_lname || '';
+                    document.getElementById("pt_dob").value = data.pt_dob || '';
+                    document.getElementById("pt_age").value = data.pt_age || '';
+                    document.getElementById("pt_gender").value = data.pt_gender || '';
+                    document.getElementById("pt_adn").value = data.pt_adn || '';
+                    document.getElementById("pt_phone_number").value = data.pt_phone_number || '';
+                    document.getElementById("trauma_id").value = data.trauma_id || '';
+                })
+                .catch(error => {
+                    console.error("เกิดข้อผิดพลาดในการดึงข้อมูลผู้ป่วย", error);
+                    // หากไม่พบข้อมูลผู้ป่วย ให้ตั้งค่าช่องในฟอร์มเป็นค่าว่างเปล่า
+                    document.getElementById("pt_fname").value = '';
+                    document.getElementById("pt_lname").value = '';
+                    document.getElementById("pt_dob").value = '';
+                    document.getElementById("pt_age").value = '';
+                    document.getElementById("pt_gender").value = '';
+                    document.getElementById("pt_adn").value = '';
+                    document.getElementById("pt_phone_number").value = '';
+                    document.getElementById("trauma_id").value = '';
+                });
+            } else {
+                console.error("กรุณากรอกข้อมูล SSN");
+            }
+        });
+    </script>
+
+</body>
+</html>

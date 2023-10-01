@@ -225,13 +225,13 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                             <!-- menu ฝั่งขวา Welcome {current_user.username} / Available Beds -->
                             <ul class="menu main-menu right">
 
-                                <li><a><span>Welcome {{current_user.username}}</span></a></li>
+                                <li><a href="/admin">Admin session</a></li>
+
                                 
                                 <!-- ส่วนของ Available Beds จะมี dropdown คือ
+                                / 
+                                / Manage Bed (เฉพาะ user ที่เป็น admin)
                                 / Book Bed Slot Now 
-                                / Delete Bed (เฉพาะ user ที่เป็น admin)
-                                / Add Bed (เฉพาะ admin) 
-                                / Logout
                                 -->
 
                                 <li class="has-dropdown">
@@ -239,10 +239,26 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                     <a class="menu-dropdown-ctrl" href="javascript:;"></a>
                                     <div class="menu-dropdown">
                                         <ul>
+                                            <li><a href="/index.php">Manage Beds</a></li>
+                                            <!-- <li><a href="/addBedpage">Add Bed</a></li>
+                                            <li><a href="/delBedpage">Delete Bed</a></li> -->
                                             <li><a href="/slotbooking">Book Bed Slot Now</a></li>
-                                            <li><a href="/delBedpage">Delete Bed</a></li>
-                                            <li><a href="/addBedpage">Add Bed</a></li>
+                                            <a href="/booking" class="btn btn-secondary">Booking History</a>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
                                             <li><a href="/logoutadmin">Logout</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </li>
@@ -289,6 +305,10 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
 
 <main id="main" class="index-main">
 
+
+
+
+
 <section id="intro" class="bg-white bg-img" data-bgimg-src="https://painchula.com/wp-content/themes/PMRU/assets/img/design/index-intro-bg.jpg" data-bgimg-srcset="https://painchula.com/wp-content/themes/PMRU/assets/img/design/index-intro-bg-m.jpg" style="background-image: url(&quot;https://painchula.com/wp-content/themes/PMRU/assets/img/design/index-intro-bg.jpg&quot;);">
     <div class="sc-inner">
         <div class="sc-container container xl">
@@ -307,6 +327,7 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
 
                     </div>
 
+                    
 
                     <!-- อันนี้คือรัยไม่รุ้เหมือนกัน -->
                     <div class="model-wrapper tab-content" id="back">

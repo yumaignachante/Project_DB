@@ -222,19 +222,29 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                             
 
 <!-- login อยู่ในระบบ -->
-
-                            <!-- menu ฝั่งขวา Welcome {current_user.username} / Available Beds -->
+<!-- ******* กรณี user อื่นๆ ที่ไม่ใช่ admin *********** -->
+{% if current_user.username != 'admin' %}
                             <ul class="menu main-menu right">
-                                
-                                <!-- Welcome current user -->
-                                <li><a><span>Welcome {{current_user.username}}</span></a></li>
-                                
 
+                                <!-- ส่วนของ Welcome current_user.username จะมี dropdown คือ
+                                / Logout
+
+                                -->
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
 
                                 <!-- ส่วนของ Available Beds จะมี dropdown คือ
                                 / Book Bed Slot Now 
-                                / Delete Bed (เฉพาะ user ที่เป็น admin)
-                                / Add Bed (เฉพาะ admin) 
                                 / Logout
                                 -->
                                 <li class="has-dropdown">
@@ -242,26 +252,51 @@ var log_object = {"ajax_url":"https:\/\/painchula.com\/wp-admin\/admin-ajax.php"
                                     <a class="menu-dropdown-ctrl" href="javascript:;"></a>
                                     <div class="menu-dropdown">
                                         <ul>
+                                            <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                            <li><a href="/booking">Booking History</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+
+
+{% elif current_user.username == 'admin' %}
+                            <ul class="menu main-menu right">
 
 <!-- ******* Admin Only จะขึ้นแถบ Admin session *********** -->
-{% if current_user.username == 'admin' %}
-                                            <li><a href="/admin">Admin session</a></li>
-<!-- ******* Admin Only จะขึ้นแถบ Admin session *********** -->
-{% endif %}
+                                <li><a href="/admin">Admin session</a></li>
+
+                                <!-- ส่วนของ Available Beds จะมี dropdown คือ
+                                / Manage Bed  (เฉพาะ user ที่เป็น admin)
+                                / Book Bed Slot Now
+
+                                -->
+                                <li class="has-dropdown beds-dropdown">
+                                    <a class="readonly " href="javascript:;">Available Beds</a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
+                                            <li><a href="/index.php">Manage Beds</a></li>
                                             <li><a href="/slotbooking">Book Bed Slot Now</a></li>
+                                            <li><a href="/booking">Booking History</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="has-dropdown welcome-dropdown">
+                                    <a class="readonly " href="javascript:;">
+                                        <span>Welcome {{current_user.username}}</span>
+                                    </a>
+                                    <a class="menu-dropdown-ctrl" href="javascript:;"></a>
+                                    <div class="menu-dropdown">
+                                        <ul>
                                             <li><a href="/logout">Logout</a></li>
                                         </ul>
                                     </div>
                                 </li>
 
-                            </ul>
-                            <!-- <li class="dropdown" id="signInDropdown"><a href="#"><span>Welcome {{current_user.username}}</span> <i class="bi bi-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="/slotbooking">Book Slot</a></li>
-                                    <li><a href="/logout">Logout</a></li>
-                                </ul>
-        
-                            </li> -->
+{% endif %}
 
 
 <!-- จบกรณี มี user เข้าสู่ระบบแล้ว -->
